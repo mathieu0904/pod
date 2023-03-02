@@ -16,6 +16,11 @@ class RegisterUserView(CreateView):
     form_class = RegisterUserForm
     template_name = "essivi/register.html" 
 
+    def dispatch(self, request, *args, **kwargs):
+        if request.user.is_authenticated():
+            return HttpResponseForbidden()
+        
+        return super(RegisterUserView, self).dispatch(request, *args, **kwargs)
     
     def form_valid(self, form):
         user = form.save(commit=False)
