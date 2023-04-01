@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png">
+        {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+        {% block stylesheets %}
+        {% endblock %}
+
+        {% block javascripts %}
+        {% endblock %}
+
+        {% block css %}
+            {% load static %}
+            <link rel="stylesheet" type="text/css" href="{% static 'essivi/vendors/feather/feather.css' %}">
+            <link rel="stylesheet" type="text/css" href="{% static 'essivi/vendors/mdi/css/materialdesignicons.min.css' %}">
+            <link rel="stylesheet" type="text/css" href="{% static 'essivi/vendors/ti-icons/css/themify-icons.css' %}">
+            <link rel="stylesheet" type="text/css" href="{% static 'essivi/vendors/typicons/typicons.css' %}">
+            <link rel="stylesheet" type="text/css" href="{% static 'essivi/vendors/simple-line-icons/css/simple-line-icons.css' %}">
+            <link rel="stylesheet" type="text/css" href="{% static 'essivi/vendors/css/vendor.bundle.base.css' %}">
+            <link rel="stylesheet" type="text/css" href="{% static 'essivi/css/vertical-layout-light/style.css' %}">
+            <link rel="stylesheet" href="/static/essivi/bootstrap/css/bootstrap.min.css">
+        {% endblock %}
+    </head>
+    <body>
+
+        <div class="container-scroller">
+            <!-- partial:../../partials/_navbar.html -->
+                {% include 'starAdmin/navbar.html' %}
+            <!-- partial -->
+            <div class="container-fluid page-body-wrapper">
+                <!-- partial:../../partials/_sidebar.html -->
+                    {% include 'starAdmin/sidebar.html' %}
+                <!-- partial -->
+                <div class="main-panel">
+                    <div class="content-wrapper">
+                        {% block body %}
+                        {% endblock %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+            
+    </body>
+</html>
