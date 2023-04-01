@@ -1,0 +1,56 @@
+{% extends 'base1.html' %}
+
+{% block body %}
+  <div class="row justify-content-center" >
+    <div class="col-lg-10" >
+        <div class="card">
+            <div class="card-header">
+                <h2 class="text-center">Liste de produits</h2>
+            </div>
+            <div class="card-body">
+                <div class="d-flex justify-content-end">
+                    <a href="{% url 'product_create' %}" class="btn btn-sm btn-outline-primary btn-icon-text">
+                        <i class="ti-plus"></i>
+                        Ajouter un produit
+                    </a>
+                </div>
+                
+                <table class="table display" id="table">
+                    <thead>
+                        <tr>
+                            <th class="text-center">Designation</th>
+                            <th class="text-center">Prix</th>
+                            <th class="text-center">categorie</th>
+                            <th class="text-center">Marque</th>
+                            <th class="text-center">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for product in products %}
+                      <tr>
+                          <td class="text-center fw-bold">{{ product.designation }}</td>
+                          <td class="text-center fw-bold">{{ product.price }}</td>
+                          <td class="text-center fw-bold">{{ product.category }}</td>
+                          <td class="text-center fw-bold">{{ product.brand }}</td>
+                          <td class="text-center">
+                            <a href="{% url 'product_update' product.id %}" class="btn btn-sm btn-outline-primary btn-rounded btn-fw">
+                                <i class="ti-pencil"></i>
+                                Modifier
+                            </a>
+                            <a href="{% url 'product_delete' product.id %}" class="btn btn-sm btn-outline-danger btn-rounded btn-fw">
+                                <i class="ti-trash"></i>
+                                Supprimer
+                            </a>
+                          </td>
+                      </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                
+            </div>              
+        </div>
+    </div>
+  </div>
+
+
+{% endblock %}

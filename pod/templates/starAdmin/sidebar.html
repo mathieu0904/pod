@@ -1,0 +1,46 @@
+<nav class="sidebar sidebar-offcanvas" id="sidebar">
+        <ul class="nav">
+            <li class="nav-item ">
+              <a class="nav-link" href="{% url 'dashboard' %}">
+                <i class="mdi mdi-grid-large menu-icon"></i>
+                <span class="menu-title">Tableau de bord</span>
+              </a>
+            </li>
+
+            <li class="nav-item ">
+              <a class="nav-link" href="{% url 'product_list' %}">
+                <i class="mdi mdi mdi-checkbox-multiple-blank menu-icon"></i>
+                <span class="menu-title">Produits</span>
+              </a>
+            </li>
+
+            <li class="nav-item ">
+              <a class="nav-link" href="{% url 'category_list' %}">
+                <i class="menu-icon mdi mdi-shape-plus"></i>
+                <span class="menu-title">Catégories</span>
+              </a>
+            </li>
+
+            <li class="nav-item ">
+              <a class="nav-link" href="{% url 'brand_list' %}">
+                <i class="mdi mdi mdi-tag-multiple menu-icon"></i>
+                <span class="menu-title">Marques</span>
+              </a>
+            </li>
+            
+            <li class="nav-item ">
+              <a class="nav-link" href="{% url 'custommer_list' %}">
+                <i class="mdi mdi-account menu-icon"></i>
+                <span class="menu-title">Clients</span>
+              </a>
+            </li>
+
+            <li class="nav-item ">
+              <a class="nav-link" href="#">
+                <i class="mdi mdi-bookmark-plus menu-icon"></i>
+                <span class="menu-title">Commandes</span>
+              </a>
+            </li>
+            
+        </ul>
+      </nav>

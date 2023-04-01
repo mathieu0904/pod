@@ -1,0 +1,56 @@
+{% extends 'base1.html' %}
+
+{% block body %}
+  <div class="row justify-content-center" >
+    <div class="col-lg-10" >
+        <div class="card">
+            <div class="card-header">
+                <h2 class="text-center">Liste des Clients</h2>
+            </div>
+            <div class="card-body">
+                <div class="d-flex justify-content-end">
+                    <a href="{% url 'custommer_create' %}" class="btn btn-sm btn-outline-primary btn-icon-text">
+                        <i class="ti-plus"></i>
+                        Ajouter un client
+                    </a>
+                </div>
+                
+                <table class="table display" id="table">
+                    <thead>
+                        <tr>
+                            <th class="text-center">Nom</th>
+                            <th class="text-center">Prenom</th>
+                            <th class="text-center">Contact</th>
+                            <th class="text-center">Adresse</th>
+                            <th class="text-center">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {% for custommer in custommers %}
+                      <tr>
+                          <td class="text-center fw-bold">{{ custommer.last_name }}</td>
+                          <td class="text-center fw-bold">{{ custommer.first_name }}</td>
+                          <td class="text-center fw-bold">{{ custommer.contact }}</td>
+                          <td class="text-center fw-bold">{{ custommer.address }}</td>
+                          <td class="text-center">
+                            <a href="{% url 'custommer_update' custommer.id %}" class="btn btn-sm btn-outline-primary btn-rounded btn-fw">
+                                <i class="ti-pencil"></i>
+                                Modifier
+                            </a>
+                            <a href="{% url 'custommer_delete' custommer.id %}" class="btn btn-sm btn-outline-danger btn-rounded btn-fw">
+                                <i class="ti-trash"></i>
+                                Supprimer
+                            </a>
+                          </td>
+                      </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+                
+            </div>              
+        </div>
+    </div>
+  </div>
+
+
+{% endblock %}

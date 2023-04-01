@@ -1,0 +1,28 @@
+{% extends "base1.html" %}
+
+{% block body %}
+<div class="row justify-content-center" >
+    <div class="col-md-6 stretch-card" >
+        <div class="card">
+            <div class="card-header">
+                <h2>Confirmer la suppression de {{ category }}</h2>
+            </div>
+            <div class="card-body">
+                <p>Êtes-vous sûr(e) de vouloir supprimer {{ category }} ? Cette action ne peut pas être annulée.</p>
+                <form method="post">
+                  {% csrf_token %}
+                  <input type="submit" class="btn-outline-danger " value="Supprimer">                
+                </form>
+            </div>
+            
+            <div class="card-footer">
+                <a href="{% url 'category_list' %}">
+                    <i class="ti-back-left"></i>
+                    Retour à la liste
+                </a>
+            </div>                
+        </div>
+    </div>
+</div>
+
+{% endblock %}

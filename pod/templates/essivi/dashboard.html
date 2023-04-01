@@ -1,16 +1,17 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Dashboard</title>
-</head>
-<body>
+{% extends 'base1.html' %}
+
+{% block title %}
+	Dashboard
+{% endblock %}
+
+{% block body %}
     {% if request.user.is_authenticated %}
     	<p> Salut {{ request.user }}</p>
         <a href="{% url 'logout' %}">Logout</a>
     {% else %}
     	<p> Salut anonyme </p>
+		<a href="{% url 'login' %}">Login</a>
     {% endif %}
-</body>
-</html>
+
+	{% include 'chart.html' %}
+{% endblock %}

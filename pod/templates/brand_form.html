@@ -1,0 +1,49 @@
+{% extends 'base1.html' %}
+
+
+{% block title %}Marques{% endblock %}
+
+{% block body %}
+    <div class="row justify-content-center" >
+        <div class="col-md-6 stretch-card" >
+            <div class="card">
+                <div class="card-header">
+                    <h2 class="text-center">Marques</h2>
+                </div>
+                <div class="card-body">
+                  <form method="post" class="form-sample">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button class="btn btn-outline-primary btn-sm btn-fw">
+                      <i class="ti-save"></i>
+                      Enregistrer
+                    </button>
+                  </form>
+                </div>
+                
+                <div class="card-footer">
+                    <a href="{% url 'brand_list' %}">
+                        <i class="ti-back-left"></i>
+                        Retour à la liste
+                    </a>
+                </div>                
+            </div>
+        </div>
+    </div>
+    
+{% endblock %}
+
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+</head>
+<body>
+  <form method="post">
+    
+  </form>
+</body>
+</html>
